@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Session Storages</title>
+        <style>
+         fieldset{
+             width: 25%;
+             margin:5rem auto;
+             border: 1px solid darkslateblue;
+             border-radius: 5px;
+           
+            
+         }
+         legend{
+             text-align: center;
+             color:darkturquoise;
+             font-size: 2rem;
+             font-family: Arial, Helvetica, sans-serif;
+             border: 2px solid silver;
+             border-radius: 1rem;
+             padding:1rem;
+          
+             
+         }
+         label{
+             display: block;
+             font-size: 2rem;
+             padding: 1rem;
+             text-align: center;
+             margin: auto;
+            
+
+            
+         }
+         input{
+             display: block;
+             margin-left: 3rem auto;
+             width: 20rem;
+             border-radius: 5px;
+             height: 2rem;
+
+
+         }
+         article{
+             margin:1rem;
+            
+         }
+         button{
+             display: block;
+             width: 10rem;
+            margin: auto;
+            margin-top: 1rem;
+            color:black;
+            background-color: salmon;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            border-radius: 2rem;
+            padding:5px;
+         }
+
+        </style>
+    </head>
+    <body>
+    <fieldset> 
+    <legend>Mobile banking</legend>
+    
+    <article>
+
+        <label>Accountnumber</label>
+        <input type="Accountnumber" id="StorageAccountnumber">
+    </article>
+
+      
+    <article>
+
+        <label>Mobilenumber</label>
+        <input type="Mobilenumber" id="StorageMobilenumber">
+    </article>
+    <article>
+           <button onclick = "store()">Store</button>
+           <button onclick = "Read()"> Read </button>
+           <button onclick = "Remove()">Delete</button>
+    </article>
+   </fieldset>    
+    </body>
+
+
+    <script>
+    
+    function store(){
+       
+             obj={
+
+             
+                "Accountnumber": document.getElementById("StorageAccountnumber").value,
+                "Mobilenumber": document.getElementById("StorageMobilenumber").value
+             }
+               window.sessionStorage.setItem("login-details",JSON.stringify(obj));
+            }  
+
+          function Read() {
+
+              str = window.sessionStorage.getItem("login-details");
+              obj1 = JSON.parse(str);
+              console.log(obj1);
+
+              
+          }
+           function Remove(){
+            
+            window.sessionStorage.removeItem("login-details");
+
+
+           }
+
+
+
+        
+    </script>
+
+
+
+</html>

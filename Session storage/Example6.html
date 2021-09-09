@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>STORAGE APIS</title>
+    </head>
+    <style>
+        fieldset{
+            border:1px solid burlywood;
+            border-radius: 1rem;
+            width: 25%;
+            margin: 5rem auto;
+            background-color: black;
+        }
+        legend{
+             background-color: cornsilk;
+             color:orangered;
+             padding:5px;
+             border: 1px solid black;
+             border-radius: 5px;
+             text-align: center;
+             font-size: 2rem;
+             width: 5rem;
+        }
+        label{
+            display: block;
+            margin: 10px 0px;
+            background-color: blanchedalmond;
+            font-family: comic sans ms;
+            width: 25%;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+
+        }
+        input{
+             width: 20rem;
+            border-radius: 5px;
+            height: 2rem;
+            margin-left: 5rem;
+
+        }
+        article{
+            margin-bottom: 1rem;
+        }
+      button{
+            display: block;
+            width: 30rem;
+            margin-bottom:1rem;
+            background-color: blanchedalmond;
+            color:red;
+            padding: 5px;
+            border-radius: 1rem;
+            font-size: 1rem;
+         }
+    </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Aha</legend>
+         <article>
+
+         <label>Mobile Number</label>
+          <input type="Mobile Number" id="StorageMobileNumber">
+         </article>
+         <article>
+         <label>OTP</label>
+          <input type="OTP" id="StorageOTP">
+         </article>
+         
+         <article>
+            <button onclick = "store()">Store</button>
+            <button onclick = "Read()"> Read </button>
+            <button onclick = "Remove()">Delete</button>
+         </article>
+
+
+        </fieldset>
+    </body>
+
+    <script>
+    
+        function store(){
+           
+                 obj={
+    
+                 
+                    "MobileNumber": document.getElementById("StorageMobileNumber").value,
+                    "OTP": document.getElementById("StorageOTP").value
+                 }
+                   window.sessionStorage.setItem("credentials",JSON.stringify(obj));
+                }  
+    
+              function Read() {
+    
+                  str = window.sessionStorage.getItem("credentials");
+                  obj1 = JSON.parse(str);
+                  console.log(obj1);
+    
+                  
+              }
+               function Remove(){
+                
+                window.sessionStorage.removeItem("credentials");
+    
+    
+               }
+    
+    
+    
+            
+        </script>
+    
+    
+
+
+
+
+
+
+
+</html>

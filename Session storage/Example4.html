@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Storage tag</title>
+        <style>
+            fieldset{
+                width: 30rem;
+                margin:5rem auto;
+                border: 1px solid olive;
+                border-radius: 5px;
+                background-color: black;
+                
+               
+            }
+          legend{
+              width: 20rem;
+              border: 2px solid cornflowerblue;
+              color: white;
+              border-radius: 1rem;
+              text-align: center;
+              font-size: 2rem;
+              background-color: black;
+              padding: 5px;
+          }
+
+        label{
+            display: block;
+            font-size: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            color:white;
+            margin: auto;
+            text-align: center;
+            margin-top: 1rem;
+           
+        
+        }
+        input{
+            display: block;
+            margin: auto;
+            width: 20rem;
+            margin-top: 1rem;
+            height: 2rem;
+        }
+         button{
+             display: block;
+             width: 30%;
+             margin: auto;
+             margin-top: 1rem;
+             padding: 5px;
+             border-radius: 1rem;
+             color: red;
+             background-color:yellow;
+             font-size: 1rem;
+         }
+
+
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>ONLINE BANKING</legend>
+            <article>
+                <label>username</label>
+                <input type ="username" id="Storageusername">
+            </article>
+
+            <article>
+                <label>password</label>
+                <input type ="password" id="Storagepassword">
+            </article>
+
+
+           <article>
+               <button onclick ="Store()">Store</button>
+               <button onclick ="Read()">Read</button>
+               <button onclick ="Remove()">Delete</button>
+           </article>
+        </fieldset>
+    </body>
+<script>                                                         
+
+
+   function Store(){
+
+    obj={
+        "username":document.getElementById("Storageusername").value,
+        "password":document.getElementById("Storagepassword").value
+   }
+     
+       window.sessionStorage.setItem("logindetails",JSON.stringify(obj));
+  
+}
+  function Read(){
+
+      str = window.sessionStorage.getItem("logindetails");
+      obj1 = JSON.parse(str);
+      console.log(obj1);
+
+  }
+
+
+
+      
+  function Remove(){
+        window.sessionStorage.removeItem("logindetails");
+
+  }
+
+ </script>
+
+
+</html>
